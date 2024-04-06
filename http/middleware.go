@@ -35,7 +35,7 @@ func (Binder) Bind(i interface{}, c echo.Context) error {
 	valid := validator.New()
 	switch val.Kind() {
 	case reflect.Struct:
-		err = valid.Struct(val)
+		err = valid.Struct(val.Interface())
 		switch verr := err.(type) {
 		case validator.FieldError:
 			return errors.WithCode(constants.ErrCodeInvalidArgs, fmt.Sprintf("field:%s is invalid. %s", verr.Field(), verr.Error()))

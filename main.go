@@ -30,6 +30,7 @@ func main() {
 		os.Exit(1)
 		return
 	}
+	cfg.SetDefault()
 
 	//设置日志等级
 	logLvl, err := logrus.ParseLevel(cfg.Log.Level)
